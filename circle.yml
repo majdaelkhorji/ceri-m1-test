@@ -1,20 +1,13 @@
-  ## Version of Java to use
-    java:
-    version:
-        oraclejdk8
-    dependencies:
-    override : 
-        -mvn clean
 
-    general:
-    branches:
+machine:
+  java:
+    version: 'oraclejdk8'
+
+general:
+  branches:
     only:
-        - master 
-    ## list of branches to build
+      - master
+test:
+  override:
+    - mvn test
 
-
-    ## Customize test commands
-    test:
-    override:
-    - mvn test 
-    ## use Maven for testing
