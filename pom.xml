@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>src.main.java.fr.univavignon.pokedex.api</groupId>
-	<artifactId>TP-Pokemon</artifactId>
+	<artifactId>Pokemon</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>TP-Pokemon</name>
+	<name>Pokemon</name>
 	<url>https://github.com/majdaelkhorji/ceri-m1-test</url>
 	
 	<build>
