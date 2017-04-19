@@ -1,6 +1,6 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
-
+[![Coverage Status](http://img.shields.io/coveralls/doge/wow.svg)](https://coveralls.io/r/doge/wow)
 
 Nom : EL KHORJI MAJDA
 
