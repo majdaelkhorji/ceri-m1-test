@@ -11,3 +11,8 @@ test:
   override:
     - mvn test
 
+## Customize test commands
+test:
+  override:
+    - mvn clean jacoco:prepare-agent test jacoco:report # Test unitaires et report Jacoco
+    - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/jacoco/jacoco.xml -DprojectToken=${CODACY_PROJECT_TOKEN} -DapiToken=${CODACY_PROJECT_TOKEN} # Envoyer report Jacoco

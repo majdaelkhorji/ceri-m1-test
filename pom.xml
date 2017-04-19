@@ -13,6 +13,19 @@
 		<finalName>${artifactId}-${version}</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<plugins>
+		<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+			</plugin>
+			
+			<plugin>
+				<groupId>com.gavinmogan</groupId>
+				<artifactId>codacy-maven-plugin</artifactId>
+				<version>1.0.3</version>
+			</plugin>
+		</plugins>
 	</build>
 	
 	<properties>
@@ -28,6 +41,11 @@
 			<version>4.12</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
