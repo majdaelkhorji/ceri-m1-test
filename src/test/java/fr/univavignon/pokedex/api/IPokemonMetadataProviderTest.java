@@ -28,6 +28,7 @@ public class IPokemonMetadataProviderTest {
 
 	private PokemonMetadata Metadata = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 	
+	
 	/**
 	 * Retrieves and returns the metadata for the pokemon
 	 * denoted by the given <tt>index</tt>.
