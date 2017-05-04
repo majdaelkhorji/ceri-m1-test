@@ -10,7 +10,6 @@ Groupe : Classique
 
 
 
-
 Sujet de TP : 
 
 - [Slide cours](https://github.com/Faylixe/ceri-m1-test/blob/resources/Technique%20de%20tests.pdf)
