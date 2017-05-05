@@ -1,13 +1,10 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 [![CircleCI](https://circleci.com/gh/majdaelkhorji/ceri-m1-test.svg?style=svg)](https://circleci.com/gh/majdaelkhorji/ceri-m1-test)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/54f4c9c34374499892f45d8e63f20bf7)](https://www.codacy.com/app/majdaelkhorji/ceri-m1-test?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=majdaelkhorji/ceri-m1-test&amp;utm_campaign=Badge_Grade)
-<<<<<<< HEAD
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/54f4c9c34374499892f45d8e63f20bf7)](https://www.codacy.com/app/majdaelkhorji/ceri-m1-test?utm_source=github.com&utm_medium=referral&utm_content=majdaelkhorji/ceri-m1-test&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd5995b5d855435fb8d03423b2342f05)](https://www.codacy.com/app/majdaelkhorji/ceri-m1-test?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=majdaelkhorji/ceri-m1-test&amp;utm_campaign=Badge_Grade)
 
-54f4c9c34374499892f45d8e63f20bf7
-=======
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/677739611ea0443abd8cac3a370d2fad)](https://www.codacy.com/app/majdaelkhorji/ceri-m1-test?utm_source=github.com&utm_medium=referral&utm_content=majdaelkhorji/ceri-m1-test&utm_campaign=Badge_Coverage)
->>>>>>> refs/remotes/origin/master
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/bd5995b5d855435fb8d03423b2342f05)](https://www.codacy.com/app/majdaelkhorji/ceri-m1-test?utm_source=github.com&utm_medium=referral&utm_content=majdaelkhorji/ceri-m1-test&utm_campaign=Badge_Coverage)
+
+
 
 bd5995b5d855435fb8d03423b2342f05
 
