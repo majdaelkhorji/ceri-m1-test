@@ -1,62 +1,63 @@
 package fr.univavignon.pokedex.api;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import java.io.IOException;
+import java.util.List;
+import org.junit.*;
+import org.mockito.*;
+
 
 public class IPokedexFactoryTest {
-
-
-/**
- * Factory interface for class that aims to create IPokedex instance.
- */
+	@Mock 
+	protected IPokedexFactory pokedexfactory;
+	@Mock 
+	protected IPokemonMetadataProvider metadataProvider;
+	@Mock 
+	protected IPokemonFactory pokemonFactory;
+	@Mock
+	protected IPokedex Pokedex;
 	
-
-	@Mock private IPokedexFactory IPokedexFactory;
-
-	  private IPokemonMetadataProvider PokMetadataProvider;
-
-	  private IPokemonFactory PokemonFactory;
-
-	  private IPokedex Pokedex;
-
-/*
-protected IPokedexFactory getIPokedexFactory() {
 	
-	Mockito.when(IPokedexFactory.createPokedex(PokMetadataProvider,PokemonFactory)).thenReturn(Pokedex);
 	
-	return IPokedexFactory;
+	
+	@Before 
+	public void setUp() throws IOException {
+		MockitoAnnotations.initMocks(this);
+		List<Pokemon> pokemons = PokemonFactoryTest.genererPokemons(4);
+		Mockito.when(pokedexfactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(Pokedex);
+		Mockito.when(Pokedex.size()).thenReturn(pokemons.size());
+		Mockito.when(Pokedex.getPokemons()).thenReturn(pokemons);
+	} 
+	
+	@Test()
+	public void testEqualPokemon() throws IOException
+	{
+		IPokedex pokedexByFactory = this.getPokodexFactory();
+		for(int i = 0 ; i < Pokedex.getPokemons().size() ; i++)
+		{
+			assertEquals(Pokedex.getPokemons().get(i) , pokedexByFactory.getPokemons().get(i));
+		}
+	}
+	
+	
+	
+	public IPokedex getPokodexFactory() throws IOException
+	{
+		return pokedexfactory.createPokedex(metadataProvider, pokemonFactory);
+	}
+	
+	
+	@Test()
+	public void testSize() throws IOException
+	{
+		IPokedex pokedexByFactory = this.getPokodexFactory();
+		assertEquals(Pokedex.size(),pokedexByFactory.size());
+	}
+	
+	
+	
+	
 	
 }
-*/
-	  
-@Before
-public void setUp()
-{
- 	MockitoAnnotations.initMocks(this);
-
-	//Mock Pokedex factory
-	Mockito.when(IPokedexFactory.createPokedex(PokMetadataProvider, PokemonFactory)).thenReturn(Pokedex);
-}
-
-
-/**
- * /*
-	 * test de la methode IPokedex createPokedex(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory);
-	 */
-
-
-@Test
-public void testCreatePokedex() {
-	
-	assertEquals(Pokedex,IPokedexFactory.createPokedex(PokMetadataProvider,PokemonFactory));
-	
-}
-
-}
-
 

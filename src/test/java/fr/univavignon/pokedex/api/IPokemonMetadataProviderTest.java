@@ -1,72 +1,57 @@
 package fr.univavignon.pokedex.api;
 
-import static org.junit.Assert.*;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 
 
+@RunWith(MockitoJUnitRunner.class)
 public class IPokemonMetadataProviderTest {
-	
+	@Mock 
+	protected IPokemonMetadataProvider pokemonMetaDataProvider;
 
-
-	/**
-	 * Configuration the mock for IPokemonMetadataProvider.
-	 * 
-	 * @param mock
-	 * @throws PokedexException 
-	 * @throws Exception
-	 */	
-
-	@Mock private IPokemonMetadataProvider IPokemonMetaProvider;
-	
-
-	private PokemonMetadata Metadata = new PokemonMetadata(133, "Aquali", 186, 168, 260);
+	protected List<PokemonMetadata> pokemonMetadata ;
+	protected List<Integer> ErrorList;
 	
 	
-	/**
-	 * Retrieves and returns the metadata for the pokemon
-	 * denoted by the given <tt>index</tt>.
-	 * 
-	 * @param index Index of the pokemon to retrieve metadata for.
-	 * @return Metadata of the pokemon.
-	 * @throws PokedexException If the given <tt>index</tt> is not valid.
-	 */
-	
-	@Test
-	public void getPokemonMetadataTest() throws PokedexException{
-		assertEquals(133, Metadata.getIndex());
-		assertEquals("Aquali", Metadata.getName());
-		assertEquals(186, Metadata.getAttack());
-		assertEquals(168, Metadata.getDefense());
-		assertEquals(260, Metadata.getStamina());
-	
-	}
-	
-	
-	@Test(expected = PokedexException.class)
-	public void exceptionTest() throws PokedexException{
-		IPokemonMetaProvider.getPokemonMetadata(25);
+	@Before 
+	public void setUp() throws PokedexException  { 
+		MockitoAnnotations.initMocks(this);
+		this.ErrorList = new ArrayList<Integer>();
+		this.ErrorList.add(-1);
+		this.ErrorList.add(233);
+		pokemonMetadata = new ArrayList<PokemonMetadata>();
+		pokemonMetadata.add(new PokemonMetadata(0,"Bulbizarre",126,126,90));
+		pokemonMetadata.add(new PokemonMetadata(133,"Aquali",186,168,260));
+		Mockito.when(pokemonMetaDataProvider.getPokemonMetadata(0)).thenReturn(pokemonMetadata.get(0));
+		Mockito.when(pokemonMetaDataProvider.getPokemonMetadata(133)).thenReturn(pokemonMetadata.get(1));
+		Mockito.when(pokemonMetaDataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException(" Exception"));
+		Mockito.when(pokemonMetaDataProvider.getPokemonMetadata(233)).thenThrow(new PokedexException("Exception pokedex"));
 		
-	}
+		} 
+	 @Test(expected=PokedexException.class)   
+	 public void testPokemonNotFoundException() throws PokedexException {     
+		for(Integer index : this.ErrorList)
+		 	pokemonMetaDataProvider.getPokemonMetadata(index);
 	
-	/*
-	 * Defining the behavior of mocked objects 
-	 */
-	@Before
-	public void setUp() throws PokedexException {
-	MockitoAnnotations.initMocks(this);//Integration of Mockito in JUnit
-	Mockito.when(IPokemonMetaProvider.getPokemonMetadata(133)).thenReturn(Metadata);
-	Mockito.when(IPokemonMetaProvider.getPokemonMetadata(25)).thenThrow(new PokedexException("Index non trouvé"));
-
-	}
+		 }
 	
-
+	 @Test()
+	 public void testPokemonFound() throws PokedexException
+	 {
+		 for(PokemonMetadata pokemondata : pokemonMetadata)
+			 assertEquals(this.pokemonMetaDataProvider.getPokemonMetadata(pokemondata.getIndex()),pokemondata);
+		 
+	 }
 }
-
 

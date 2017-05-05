@@ -63,5 +63,12 @@ public class PokemonMetadata {
 	public int getStamina() {
 		return stamina;
 	}
+	@Override
+	public boolean equals(Object obj)
+	{
+		PokemonMetadata Pokemon = (PokemonMetadata) obj;
+		return Pokemon.attack == this.attack && Pokemon.defense == this.defense && Pokemon.index == this.index && Pokemon.name.equals(this.name) && Pokemon.stamina == this.stamina;
+	
+	}
 
 }
