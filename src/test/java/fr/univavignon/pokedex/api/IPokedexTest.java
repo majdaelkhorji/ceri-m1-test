@@ -12,25 +12,27 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.exceptions.base.MockitoException;
+
 
 
 
 public  class IPokedexTest {
 	@Mock 
 	protected IPokedex pokedex;
-	@Mock
+	
 	protected List<Pokemon> PokemonsList;
-	@Mock
+	
 	protected Map<Integer,Pokemon> pokemonsGetIdTeste;
-	@Mock
+	
 	protected int size;
-	@Mock
+	
 	protected List<Pokemon> pokemonsGetAll;
-	@Mock
+	
 	protected int getIdPok;
-	@Mock
+	
 	protected PokemonMetadata getVal;
-	@Mock
+	
 	protected Pokemon Pok;
 	
 	@Before 
